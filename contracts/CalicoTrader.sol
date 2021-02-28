@@ -6,7 +6,7 @@ pragma experimental ABIEncoderV2;
 import "./IERC20.sol";
 import "./IERC721.sol";
 
-contract CalicoExchange  {
+contract CalicoTrade  {
 
     enum Status {Initiated, Success, Withdrawn}
 
