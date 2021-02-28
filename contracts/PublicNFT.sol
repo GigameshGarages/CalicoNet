@@ -4,14 +4,14 @@
 pragma solidity >=0.6.0 <0.8.0;
 pragma experimental ABIEncoderV2;
 
-import { ERC721Full } from "./ERC721Full.sol";
+import { ERC721 } from "./ERC721.sol";
 import { SafeMath } from "./SafeMath.sol";
 
 
 /**
  * @notice - This is the NFT contract for a Public Art
  */
-contract PublicNFT is ERC721Full {
+contract PublicNFT is ERC721 {
     using SafeMath for uint256;
 
     uint256 public currentPhotoId;
@@ -34,7 +34,7 @@ contract PublicNFT is ERC721Full {
         uint photoPrice
     ) 
         public 
-        ERC721Full(_nftName, _nftSymbol) 
+        ERC721(_nftName, _nftSymbol) 
     {
         mint(owner, _tokenURI);
     }
