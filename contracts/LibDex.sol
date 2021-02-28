@@ -1,6 +1,10 @@
-pragma solidity ^0.4.10;
 
-import "openzeppelin-solidity/contracts/math/SafeMath.sol";
+// SPDX-License-Identifier: Apache License 2.0
+
+pragma solidity >=0.6.0 <0.8.0;
+pragma experimental ABIEncoderV2;
+
+import "./SafeMath.sol";
 
 library LibDex {
 
