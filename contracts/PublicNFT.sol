@@ -1,7 +1,6 @@
-
 // SPDX-License-Identifier: Apache License 2.0
 
-pragma solidity >=0.6.0 <0.8.0;
+pragma solidity ^0.8.0;
 pragma experimental ABIEncoderV2;
 
 import { ERC721 } from "./ERC721.sol";
