@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.0;
 
-import "../ERC721.sol";
+import "./ERC721.sol";
 import "./ERC721Enumerable.sol";
 import "./ERC721Burnable.sol";
 import "./ERC721Pausable.sol";
