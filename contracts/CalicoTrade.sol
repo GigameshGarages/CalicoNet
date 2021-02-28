@@ -28,31 +28,10 @@ contract CalicoTrade  {
 
     ExchangeData[] public exchange;
 
-
-    // **************************** //
-    // *          Events          * //
-    // **************************** //
-
-    /** @dev To be emitted when a party pays or reimburses the other.
-     *  @param _exchangeID The index of the exchange.
-     *  @param _party1 1st party in exchange.
-     *  @param _token1 The token address.
-     *  @param _amount1 The amount of tokens/ Id of token in this transaction.
-     *  @param _token2 The token address.
-     *  @param _amount2 The amount of tokens/ Id of token in this transaction.
-     */
     event ExchangeCreated(uint _exchangeID, address indexed _party1, address _token1, uint _amount1, address _token2, uint _amount2);
 
     event ExchangeStatusChange(uint _exchangeID, uint _status);
 
-    /** @dev Create a exchange Entity to Entity. UNTRUSTED.
-     *  @param _tokenId The amount of tokens/ Id of token in this transaction.
-     *  @param _token1 The token address.
-     *  @param _expiry Time after which a deal will off.
-     *  @param _token2 The token address.
-     *  @param _amount2OrTokenId The amount of tokens/ Id of token expecting.
-     *  @return The index of the transaction.
-     */
     function createExchange(
         uint _tokenId,
         address _token1,
@@ -82,9 +61,6 @@ contract CalicoTrade  {
 
     }
 
-    /** @dev party2 response for exchange.
-     *  @param _exchangeID The index of the exchange.
-     */
     function party2Response(uint _exchangeID) public {
         ExchangeData storage exchangeData = exchange[_exchangeID];
         require(exchangeData.status == Status.Initiated);
@@ -103,9 +79,6 @@ contract CalicoTrade  {
         
     }
 
-    /** @dev party one can withdraw anytime if status is still initiated.
-     *  @param _exchangeID The index of the transaction.
-     */
     function withdrawRequest(uint _exchangeID) public {
         ExchangeData storage exchangeData = exchange[_exchangeID];
         require(exchangeData.party1 == msg.sender);
@@ -119,37 +92,8 @@ contract CalicoTrade  {
     }
 
 
-    // **************************** //
-    // *     Constant getters     * //
-    // **************************** //
-
-    /** @dev Getter to know the count of Exchange.
-     *  @return count The count of exchanges.
-     */
     function getCountExchange() public view returns (uint count) {
         return exchange.length;
     }
 
-    // /** @dev Get IDs for transactions where the specified address is the receiver and/or the sender.
-    //  *  This function must be used by the UI and not by other smart contracts.
-    //  *  Note that the complexity is O(t), where t is amount of arbitrable transactions.
-    //  *  @param _address The specified address.
-    //  *  @return exchangeIDs The exchange IDs.
-    //  */
-    // function getExchangeIDsByAddress(address _address) public view returns (uint[] memory exchangeIDs) {
-    //     uint count = 0;
-    //     for (uint i = 0; i < exchange.length; i++) {
-    //         if (exchange[i].party1 == _address || exchange[i].party2 == _address)
-    //             count++;
-    //     }
-
-    //     exchangeIDs = new uint[](count);
-
-    //     count = 0;
-
-    //     for (uint j = 0; j < exchange.length; j++) {
-    //         if (exchange[j].party1 == _address || exchange[j].party2 == _address)
-    //             exchangeIDs[count++] = j;
-    //     }
-    // }
 }
