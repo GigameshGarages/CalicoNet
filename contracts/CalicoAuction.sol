@@ -4,7 +4,7 @@
 pragma solidity ^0.8.0;
 pragma experimental ABIEncoderV2;
 
-import "./tokens/NFToken.sol";
+import "./ERC721.sol";
 
 contract CalicoAuction {
 
@@ -24,10 +24,6 @@ contract CalicoAuction {
 
   mapping (uint256 => Auction) internal tokenIdToAuction;
   mapping (uint64 => Auction) internal auctionIdToAuction;
-  // TODO: are arrays of structs even possible?
-  //       use this for making auctions discoverable
-  //mapping(address => Auction[]) internal ownerToAuction;
-  //mapping(uint256 => uint256) internal auctionIdToOwnerIndex;
 
   event AuctionCreated(uint64 auctionId, uint256 tokenId,
                       uint256 startingPrice, uint256 endingPrice, uint256 duration);
@@ -38,7 +34,6 @@ contract CalicoAuction {
       NFTContract = ERC721(_NFTAddress);
   }
 
-  // return ether that is sent to this contract
   function() external {}
 
   function createAuction(
