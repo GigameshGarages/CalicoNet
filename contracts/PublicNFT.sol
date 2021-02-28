@@ -1,8 +1,11 @@
-pragma solidity ^0.5.16;
+
+// SPDX-License-Identifier: Apache License 2.0
+
+pragma solidity >=0.6.0 <0.8.0;
 pragma experimental ABIEncoderV2;
 
-import { ERC721Full } from "./openzeppelin-solidity/contracts/token/ERC721/ERC721Full.sol";
-import { SafeMath } from "./openzeppelin-solidity/contracts/math/SafeMath.sol";
+import { ERC721Full } from "./ERC721Full.sol";
+import { SafeMath } from "./SafeMath.sol";
 
 
 /**
