@@ -1,4 +1,8 @@
-pragma solidity ^0.4.24;
+
+// SPDX-License-Identifier: Apache License 2.0
+
+pragma solidity ^0.8.0;
+pragma experimental ABIEncoderV2;
 
 import "./tokens/NFToken.sol";
 
