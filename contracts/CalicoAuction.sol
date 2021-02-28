@@ -5,7 +5,6 @@ pragma solidity ^0.8.0;
 pragma experimental ABIEncoderV2;
 
 import "./ERC721.sol";
-import "./ISuperAuction.sol";
 
 contract CalicoAuction {
 
