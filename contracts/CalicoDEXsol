@@ -5,7 +5,7 @@ pragma experimental ABIEncoderV2;
 
 import "./SafeMath.sol";
 
-library LibDex {
+library CalicoWorkflow {
 
     using SafeMath for uint;
 
